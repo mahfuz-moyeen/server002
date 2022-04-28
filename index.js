@@ -6,9 +6,9 @@ const ObjectId = require('mongodb').ObjectId;
 const jwt = require('jsonwebtoken');
 
 const app = express();
-
 const port = process.env.PORT || 5000
 
+// middleware
 app.use(express.json())
 app.use(cors());
 
@@ -101,7 +101,7 @@ async function run() {
                 return res.status(403).send({ message: 'Forbidden access' })
             }
         })
-        
+
         //post to  add order
         app.post('/order', async (req, res) => {
             const order = req.body
